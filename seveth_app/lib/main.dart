@@ -22,7 +22,8 @@ class SeventhApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.title});
+  final String title;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -51,8 +52,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Botão Clicado!')),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondScreen()),
                 );
               },
               child: const Text('Ir para a Segunda Tela'),
@@ -66,7 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
