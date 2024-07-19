@@ -37,11 +37,19 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text("Bem-vindo ao Seventh App",
             style: TextStyle(fontSize: 30)),
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("Olá, Mundo!", style: TextStyle(fontSize: 20)),
+            const Text("Olá, Mundo!", style: TextStyle(fontSize: 20)),
+            ElevatedButton(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Botão Clicado!')),
+                );
+              },
+              child: const Text('Clique Aqui'),
+            )
           ],
         ),
       ),
